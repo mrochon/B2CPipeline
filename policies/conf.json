@@ -1,0 +1,4 @@
+{
+    "SomeProperty": "Use {SomeProperty} in your xml to have it replaced by this value",
+    "Prefix": "PIPE"
+}
