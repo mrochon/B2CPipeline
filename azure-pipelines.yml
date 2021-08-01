@@ -1,0 +1,34 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- name: tenantId
+  value: mrochonb2cprod
+- name: clientId
+  value: 123
+- name: clientSecret
+  value: 123
+
+steps:
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Install-Module -Name IefPolicies -Scope CurrentUser -Force'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Connect-IefPolicies -tenantId (${{variables.tenantId}}) -clientId (${{variables.clientId}}) -clientSecret (${{variables.clientSecret}})'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Import-IefPolicies -sourceDirectories "./policies" -configurationFilePath "./policies/conf.json"'
