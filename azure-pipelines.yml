@@ -15,7 +15,7 @@ steps:
     script: 
       |
       Install-Module -Name IefPolicies -Scope CurrentUser -Force -AllowPrerelease
-      Connect-IefPolicies -tenant ${env:TENANTID} -clientId ${env:CLIENTID} -clientSecret ${env:CLIENT_SECRET}
+      Connect-IefPolicies -tenant ${env:TENANTNAME} -clientId ${env:CLIENTID} -clientSecret ${env:CLIENT_SECRET}
       Import-IefPolicies -sourceDirectory "./policies" -configurationFilePath "./policies/conf.json"
       
   env:
