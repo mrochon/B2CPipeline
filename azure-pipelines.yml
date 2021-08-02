@@ -12,14 +12,14 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: 'Install-Module -Name IefPolicies -Scope CurrentUser -Force'
+    script: 'Install-Module -Name IefPolicies -Scope CurrentUser -Force -AllowPrerelease'
 
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
     script: 
       |
-      'Connect-IefPolicies -tenant ${env:TENANTID} -clientId ${env:CLIENTID} -clientSecret ${env:CLIENT_SECRET}
+      'Connect-IefPolicies -tenant ${env:TENANTID} -clientId ${env:CLIENTID} -clientSecret ${env:CLIENT_SECRET}'
       'Import-IefPolicies -sourceDirectory "./policies" -configurationFilePath "./policies/conf.json"'
   env:
     CLIENT_SECRET: $(clientSecret)
