@@ -19,7 +19,7 @@ steps:
     targetType: 'inline'
     script: 
       |
-      'Connect-IefPolicies -tenant ${env:TENANTID} -clientId ${env:CLIENTID} -clientSecret ${env:CLIENT_SECRET}
+      'Connect-IefPolicies -tenant ${env:TENANTID} -clientId ${env:CLIENTID} -clientSecret ${env:CLIENT_SECRET}'
       'Import-IefPolicies -sourceDirectory "./policies" -configurationFilePath "./policies/conf.json"'
   env:
     CLIENT_SECRET: $(clientSecret)
