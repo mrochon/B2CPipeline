@@ -12,7 +12,7 @@ trigger:
     include:
     - policies
     exclude:
-    - docs/README.md
+    - README.md
 
 pool:
   vmImage: ubuntu-latest
