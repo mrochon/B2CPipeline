@@ -1,6 +1,11 @@
 # Deploy B2C custom journeys using Azure pipelines
-Using Azure pipelines to deploy B2C custom journeys
+Using Azure pipelines to deploy B2C custom journeys. There is an alternative approach documented [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/deploy-custom-policies-devops). The advantages of the approach
+provided below are:
+1. Simpler PowerShell script (3 lines)
+2. No need to enforce sequence of uploading to make sure base policies are uploaded before their dependencies. Script does that enforcement.
+3. No need to update policies with correct tenant name or IEF application ids. It is done automatically by the script.
 
+The script uses the [IefPolicies PowerShell module](https://github.com/mrochon/IEFPolicies).
 ## Process
 
 1. Create a Git project
