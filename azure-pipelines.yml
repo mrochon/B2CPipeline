@@ -2,8 +2,16 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# specific path build
 trigger:
-- main
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - policies
+    exclude:
+    - docs/README.md
 
 pool:
   vmImage: ubuntu-latest
