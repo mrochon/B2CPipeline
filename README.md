@@ -13,7 +13,7 @@ The script uses the [IefPolicies PowerShell module](https://github.com/mrochon/I
 3. Edit the policies/conf.json file to set policy prefix and any other variables that ought to be replaced in the policies
 3. Create an Azure pipeline and reference your Git repo in it
 4. Update the yaml file with the [one used in this project](https://github.com/mrochon/B2CPipeline/blob/main/azure-pipelines.yml)
-5. Register an application in your B2C tenant (using the AAD tab), which can use client credentials (id/secret or certificate) to update your tenant. It needs to have **application** Graph permissions as specified [here](https://github.com/mrochon/IEFPolicies#connect-iefpolicies).
+5. Register an application in your B2C tenant (using the AAD tab), which can use client credentials (id/secret or certificate) to update your tenant. It needs to have **application** Graph permissions as specified [here](https://github.com/mrochon/IEFPolicies#connect-iefpolicies). If you are planning to deploy your policies to multiple tenants (e.g. dev, qa, prod), you may want to create just one app registration, mark it as multi-tenant and consent it to the other tenants.
 6. Add variables to your pipeline with the *clientId*, *clientSecret* of the above application and the *tenantName* (.onmicrosoft.com is not needed)
 7. Run the pipeline
 
